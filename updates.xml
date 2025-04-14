@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<gupdate xmlns='http://google.com/update2/response' protocol='2.0'>
+  <app appid='bdapoeamheamofmbomeohfkcfjgjapgk'>
+    <updatecheck codebase='https://github.com/erffy/chromium-web-store/releases/latest/download/store.crx' version='1.0.0.0' status='ok' />
+  </app>
+</gupdate>
