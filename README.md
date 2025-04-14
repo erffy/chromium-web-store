@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> This project is inspired by the extension made by [NeverDecaf](https://github.com/NeverDecaf), and the code has been modified from [there](https://github.com/NeverDecaf/chromium-web-store).
+
 ## Chromium Web Store
 
 ⚡ Enables installing Chrome Web Store extensions and semi-automatic updates in **Ungoogled Chromium**.
@@ -20,7 +23,7 @@
    Search for `#extension-mime-request-handling` and set it to **Always prompt for install**  
    _(This enables .crx installation prompts)_
 
-2. Go to the [Releases](https://github.com/NeverDecaf/chromium-web-store/releases/latest) page  
+2. Go to the [Releases](https://github.com/erffy/chromium-web-store/releases/latest) page  
    Download the latest `store.crx` file — you should be prompted to install it.
 
 > If not prompted, you can also drag & drop the `.crx` file into `chrome://extensions/`
