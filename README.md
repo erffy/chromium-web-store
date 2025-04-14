@@ -37,6 +37,16 @@ Alternatively, load it manually:
 
 ---
 
+### 📷 Screenshots
+
+#### ⚡ Popup Window  
+![Popup](assets/screenshots/popup.png)
+
+#### 🔧 Options Page  
+![Options Page](assets/screenshots/options.png)
+
+---
+
 ### 🛠 How It Works
 
 - Checks installed extensions for available updates
