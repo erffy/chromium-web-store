@@ -1,13 +1,27 @@
-name: Bug Report
-description: Report something that isn't working right
+name: 🐞 Bug Report
+description: Report a problem with the Chromium Web Store extension
 labels: [bug]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting an issue! Please complete the fields below clearly and concisely.
+
   - type: input
     id: version
     attributes:
       label: Extension Version
-      description: What version of the Chromium Web Store extension are you using?
+      description: Which version/commit of the Chromium Web Store extension are you using?
       placeholder: e.g. 1.0.0.0
+    validations:
+      required: true
+
+  - type: input
+    id: chromium_version
+    attributes:
+      label: Chromium Version
+      description: What version of Chromium or Ungoogled Chromium are you using?
+      placeholder: e.g. 111.0.0.0 or the specific commit hash
     validations:
       required: true
 
@@ -26,21 +40,13 @@ body:
       label: What did you expect to happen?
       description: If applicable, tell us what you expected instead.
       placeholder: I expected it to...
-
+  
   - type: textarea
     id: logs
     attributes:
       label: Console errors (if any)
-      description: Paste any errors from the browser console here.
+      description: Paste any errors from the browser console here (use triple backticks).
       render: shell
-
-  - type: dropdown
-    id: chromium_version
-    attributes:
-      label: Chromium Version
-      description: What version of Chromium are you using?
-    validations:
-      required: true
 
   - type: textarea
     id: other_info
