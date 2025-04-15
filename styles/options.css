@@ -1,91 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira%20Mono');
+
 :root {
-    color-scheme: dark;
-    --bg: #1e1e1e;
-    --fg: #ddd;
-    --accent: #4c8eda;
-    --border: #333;
+  color-scheme: dark;
+  --bg: #1e1e1e;
+  --fg: #ddd;
+  --accent: #4c8eda;
+  --accent-hover: #3c76ba;
+  --border: #333;
+  --card-bg: #2b2b2b;
+  --input-bg: #121212;
+  --input-border: #444;
+  --muted: #aaa;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    padding: 2rem;
-    font-family: "Segoe UI", sans-serif;
-    background-color: var(--bg);
-    color: var(--fg);
+  margin: 0;
+  padding: 2rem 1rem;
+  font-family: 'Fira Mono', sans-serif;
+  background-color: var(--bg);
+  color: var(--fg);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    display: grid;
-    gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  gap: 2rem;
 }
 
 h1 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: var(--accent);
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
 }
 
 section {
-    padding: 1rem;
-    border: 1px solid var(--border);
-    border-radius: 0.5rem;
-    background-color: #2b2b2b;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background-color: var(--card-bg);
 }
 
 h2 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: var(--accent);
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--accent);
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 
 label {
-    display: block;
-    margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+label.sub {
+  font-size: 0.9rem;
+  padding-left: 1.25rem;
+}
+
+input[type="checkbox"] {
+  accent-color: var(--accent);
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
 }
 
 input[type="number"] {
-    width: 60px;
-    margin-left: 0.5rem;
-    background: #111;
-    color: var(--fg);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 0.2rem 0.4rem;
+  width: 4rem;
+  margin-left: 0.5rem;
+  background-color: var(--input-bg);
+  color: var(--fg);
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
+}
+
+input[type="number"]:focus-visible {
+  outline: 2px solid var(--accent);
+  border-color: var(--accent);
 }
 
 textarea {
-    width: 100%;
-    height: 100px;
-    resize: vertical;
-    padding: 0.5rem;
-    font-family: monospace;
-    background-color: #121212;
-    color: var(--fg);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    margin-top: 0.5rem;
+  width: 100%;
+  min-height: 100px;
+  resize: vertical;
+  padding: 0.6rem;
+  font-family: monospace;
+  background-color: var(--input-bg);
+  color: var(--fg);
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
 }
 
-button {
-    margin-top: 0.5rem;
-    background-color: var(--accent);
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.2s ease;
+textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  border-color: var(--accent);
 }
 
-button:hover {
-    background-color: #3c76ba;
+button,
+input[type="button"] {
+  margin-top: 0.75rem;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:hover,
+input[type="button"]:hover {
+  background-color: var(--accent-hover);
+}
+
+button:active,
+input[type="button"]:active {
+  transform: scale(0.97);
 }
 
 .empty-note {
-    font-style: italic;
-    color: #aaa;
+  font-style: italic;
+  color: var(--muted);
+  margin-top: 0.5rem;
+}
+
+input[type="checkbox"] {
+  width: 1.2rem;
+  height: 1.2rem;
+  appearance: none;
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  background-color: #121212;
+  transition: all 0.2s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+input[type="checkbox"]::after {
+  content: '';
+  position: absolute;
+  top: 0.2rem;
+  left: 0.35rem;
+  width: 0.3rem;
+  height: 0.6rem;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: scale(0) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+input[type="checkbox"]:checked::after {
+  transform: scale(1) rotate(45deg);
+}
+
+input[type="checkbox"]:disabled {
+  background-color: var(--input-bg);
+  border-color: var(--input-border);
+  cursor: not-allowed;
 }
