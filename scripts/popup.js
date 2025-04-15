@@ -10,12 +10,12 @@ function createElement(type, attributes = {}, children = []) {
     const element = document.createElement(type);
 
     // Set attributes
-    Object.entries(attributes).forEach(([key, value]) => {
+    for (const [key, value] of Object.entries(attributes)) {
         if (key === 'class' && Array.isArray(value)) {
             for (const cls of value) element.classList.add(cls);
         } else if (key === 'innerHTML') element.innerHTML = value;
         else if (value !== null && value !== undefined) element.setAttribute(key, value);
-    });
+    }
 
     // Append children
     for (const child of children) {
