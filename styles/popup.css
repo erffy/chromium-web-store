@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira%20Mono');
+
 :root {
     --bg-color-light: #f4f4f4;
     --bg-color-dark: #2d2d2d;
@@ -13,7 +15,7 @@
 
 body {
     margin: 0;
-    font-family: "Segoe UI", sans-serif;
+    font-family: 'Fira Mono', sans-serif;
     background-color: var(--bg-color-light);
     color: var(--text-color-light);
     min-width: 280px;
@@ -34,7 +36,8 @@ h1 {
     margin-bottom: 8px;
 }
 
-.message, ul li {
+.message,
+ul li {
     display: flex;
     align-items: center;
     padding: 8px;
@@ -54,47 +57,66 @@ ul {
     list-style: none;
 }
 
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0;
+    list-style: none;
+}
+
 ul li {
-    cursor: pointer;
-    background-color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
 }
 
 ul li[data-enabled="false"] {
     background-color: var(--disabled-bg);
+    cursor: not-allowed;
 }
 
 ul li:hover {
     background-color: var(--hover-bg-light);
-    transform: scale(1.03);
-}
-
-.message.hidden,
-ul li.hidden {
-    display: none;
+    transform: scale(1.015);
 }
 
 img {
-    margin-right: 8px;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     object-fit: contain;
+    align-self: center;
+    margin: 0;
 }
 
 span {
     flex: 1;
+    font-size: 13px;
+    line-height: 1.3;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
+/* Sağdaki bağlantı ikonu için */
 a {
-    color: var(--accent-color);
-    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
     margin-left: 8px;
-    transition: color 0.3s ease;
+    color: var(--accent-color);
+    transition: transform 0.2s ease;
 }
 
-a:hover {
-    color: #e60000;
+a:hover svg {
+    transform: scale(1.2);
 }
 
 .updatefailure {
@@ -131,6 +153,11 @@ a:hover svg {
         color: var(--text-color-dark);
     }
 
+    ul li {
+        background-color: #2e2e2e;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
     ul li[data-enabled="false"] {
         background-color: #444;
         color: #aaa;
@@ -138,10 +165,6 @@ a:hover svg {
 
     ul li:hover {
         background-color: var(--hover-bg-dark);
-    }
-
-    .message, ul li {
-        background-color: #333;
     }
 
     .updatefailure {
@@ -159,5 +182,9 @@ a:hover svg {
 
     svg {
         fill: #bbb;
+    }
+
+    img {
+        filter: brightness(0.9);
     }
 }
