@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "__MSG_extension_Name__",
     "description": "__MSG_extension_Description__",
-    "version": "1.0.0.0",
+    "version": "1.0.1.0",
     "author": "erffy",
     "default_locale": "en",
     "action": {
