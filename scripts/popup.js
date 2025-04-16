@@ -14,7 +14,7 @@ function createElement(type, attributes = {}, children = []) {
         if (key === 'class' && Array.isArray(value)) {
             for (const cls of value) element.classList.add(cls);
         } else if (key === 'innerHTML') element.innerHTML = value;
-        else if (value !== null && value !== undefined) element.setAttribute(key, value);
+        else if (value != null && value != undefined) element.setAttribute(key, value);
     }
 
     // Append children
@@ -124,11 +124,7 @@ function createUpdateableExtensionItem(extension, updateInfo, isWebstore) {
 
     // Add click handler for installation
     li.setAttribute('crx_url', crxUrl);
-    li.addEventListener('click', function (evt) {
-        if (evt.target.tagName !== 'A') {
-            promptInstall(crxUrl, isWebstore);
-        }
-    });
+    li.addEventListener('click', (evt) => evt.target.tagName ? promptInstall(crxUrl, isWebstore) : null);
 
     return li;
 }
@@ -241,11 +237,7 @@ function init() {
         // Success handler - extension has an update
         function (updateInfo, installedVersions, appId, updateVer, isWebstore) {
             const extensionData = installedVersions[appId];
-            const extensionItem = createUpdateableExtensionItem(
-                extensionData,
-                { '@codebase': updateInfo['@codebase'], version: updateVer },
-                isWebstore
-            );
+            const extensionItem = createUpdateableExtensionItem(extensionData, { '@codebase': updateInfo['@codebase'], version: updateVer }, isWebstore);
 
             ui.appContainer.appendChild(extensionItem);
             ui.updateStatus.classList.add('hidden');
@@ -254,13 +246,9 @@ function init() {
         // Failure handler - extension update failed or was removed
         function (wasRemoved, extensionData) {
             if (wasRemoved) {
-                const removedItem = createRemovedExtensionItem(extensionData);
-                ui.removedContainer.appendChild(removedItem);
+                ui.removedContainer.appendChild(createRemovedExtensionItem(extensionData));
                 ui.removedStatus.classList.remove('hidden');
-            } else {
-                const failedItem = createFailedUpdateItem(extensionData);
-                ui.appContainer.appendChild(failedItem);
-            }
+            } else ui.appContainer.appendChild(createFailedUpdateItem(extensionData));
         },
 
         // All up to date handler
